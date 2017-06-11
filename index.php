@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <html>
 <head>
     <title>E-Commerce</title>
@@ -7,8 +10,7 @@
 <body>
 <div id="header">
     <?php
-//    session_name()
-    if (isset($_SESSION['logged_on_user'])){
+    if (($_SESSION['logged_on_user']) !== ""){
         echo "Welcome, ".$_SESSION['logged_on_user'];
         echo "<div id='logout'><a href='logout.php'>Logout</a></div>";
     }
