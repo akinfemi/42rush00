@@ -10,6 +10,6 @@ if (file_exists("../private/items") !== FALSE){
             exit();
         }
     }
-    header('Location: admin.html?del=error');
 }
+header('Location: admin.html?del=error');
 ?>

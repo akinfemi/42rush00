@@ -7,19 +7,32 @@
 <body>
 <h2>Admin Page</h2>
 <div id="add_item">
-    Add Item
-    <br/><form method="post" action="create_item.php">
+    <h3>ADD ITEM</h3>
+    <form method="post" action="create_item.php">
     ItemID: <input name="itemid" type="text">
     <br/>
     Price: <input name="price" type="number" step="0.01">
+    <br/>
+    Item Name: <input name="item_name" type="text">
+    <br/>
+    Item Type: <input name="item_type" type="text">
+    <br/>
+    Image Path: <input name="item_path" type="text">
     <br/>
     <input type="submit" name="submit" value="OK">
 </form></div>
 
 <div id="del_item">
-    Delete Item
-    <br/><form method="post" action="delete_item.php">
+    <h3>DELETE ITEM</h3>
+    <form method="post" action="delete_item.php">
     ItemID: <input name="itemid" type="text">
+    <input type="submit" name="submit" value="Delete">
+</form></div>
+
+<div id="del_user">
+    <h3>DELETE USER</h3>
+    <form method="post" action="delete_user.php">
+    User Login: <input name="login" type="text">
     <input type="submit" name="submit" value="Delete">
 </form></div>
 <form method="post" action="index.php">
