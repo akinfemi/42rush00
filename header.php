@@ -9,5 +9,5 @@
 			<a href="http://localhost:8080/42-Rush00/cart.php">Cart</a>
 		</div>
 	</div>
-	<a href="#" id="sign-btn">Sign on</a>
+<!--	<a href="#" id="sign-btn">Sign on</a>-->
 </header>

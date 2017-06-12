@@ -218,6 +218,8 @@ footer {
 
 .store-page {
 	margin: 30px 5px;
+	flex:1;
+	/*width: 25%;*/
 }
 
 .si-btn {
@@ -231,6 +233,7 @@ footer {
 }
 
 .si-pic {
+	height: 200px;
 	width: 89.5%;
 	padding: 5px;
 	margin: 10px;

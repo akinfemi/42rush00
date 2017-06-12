@@ -7,18 +7,18 @@ if ($_POST['login'] !== "" && $_POST['passwd'] !== ""){
         if ($_SESSION['logged_on_user'] == 'admin')
             header('Location: admin.html');
         else {
-            header('Location: index.php');
+            header('Location: welcome.php');
             echo "OK\n";
             exit();
         }
     }else{
-        header('Location: index.php');
+        header('Location: welcome.php');
         echo "ERROR\n";
         exit();
     }
 }else {
     $_SESSION['logged_on_user'] = "";
-    header('Location: index.php');
+    header('Location: welcome.php');
     echo "ERROR\n";
     exit();
 }

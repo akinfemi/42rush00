@@ -18,7 +18,7 @@
                 $new_entry = ['login' => $_POST['login'], 'passwd' => $hashed];
                 $uns_content[] = $new_entry;
                 file_put_contents("../private/passwd", serialize($uns_content));
-                header('Location: index.php');
+                header('Location: welcome.php');
                 echo "OK\n";
             }
             else{
@@ -27,7 +27,7 @@
                 if (file_exists("../private") === FALSE)
                     mkdir("../private", 0777);
                 file_put_contents("../private/passwd", $new_entry);
-                header('Location: index.php');
+                header('Location: welcome.php');
                 echo "OK\n";
             }
         }

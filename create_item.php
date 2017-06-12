@@ -62,17 +62,17 @@ if ($_POST['itemid'] === "" || $_POST['submit'] !== "OK"){
                     return ;
                 }
             }
-            $img_path = "/images/".upload_image();
+            $img_path = "images/".upload_image();
             $new_entry = ['itemid' => $itemid, 'price' => $price, 'item_name' => $_POST['item_name'],
-                'item_type' => $_POST['item_type'], $img_path];
+                'item_type' => $_POST['item_type'], 'image_path' => $img_path];
             $uns_content[] = $new_entry;
             file_put_contents("../private/items", serialize($uns_content));
             header('Location: admin.html?entry=OK');
         }
         else{
-            $img_path = "/images/".upload_image();
+            $img_path = "images/".upload_image();
             $new_entry[] = ['itemid' => $itemid, 'price' => $price, 'item_name' => $_POST['item_name'],
-                'item_type' => $_POST['item_type'], $img_path];
+                'item_type' => $_POST['item_type'], 'image_path' => $img_path];
             $new_entry = serialize($new_entry);
             if (file_exists("../private") === FALSE)
                 mkdir("../private", 0777);

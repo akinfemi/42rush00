@@ -9,7 +9,24 @@
     <body>
         <?php include("header.php") ?>
         <article class="content-wrapper">
-            <h3 id="store-greet" >Welcome, <?php echo ($_SESSION['logged_on_usr'] == "") ? "Guest" : $_SESSION['logged_on_usr']; ?></h3><br>
+            <div id="header">
+                <?php
+                if (($_SESSION['logged_on_user']) !== ""){
+                    echo "Welcome, ".$_SESSION['logged_on_user'];
+                    echo "<div id='logout'><a href='logout.php'>Logout</a></div>";
+                }
+                else{
+                    echo "<form method=\"post\" action=\"login.php\">
+                    Username: <input name=\"login\" type=\"text\">
+                    Password: <input name=\"passwd\" type=\"password\">
+                    <input type=\"submit\" name=\"submit\" value=\"OK\">
+                    <a class=\"c_links\" href=\"create.html\">Create New User</a>
+                    <a class=\"c_links\" href=\"modify.html\">Modify Password</a>
+                    </form>";
+                }
+                ?>
+            </div>
+            <h3 id="store-greet" >Welcome, <?php echo ($_SESSION['logged_on_user'] == "") ? "Guest" : $_SESSION['logged_on_user']; ?></h3><br>
             <div class="my-slides">
                 <?php
                 if (file_exists("../private/items") !== FALSE){
