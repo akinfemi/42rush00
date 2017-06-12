@@ -11,15 +11,31 @@
         <article class="content-wrapper">
             <h3 id="store-greet" >Welcome, <?php echo ($_SESSION['logged_on_usr'] == "") ? "Guest" : $_SESSION['logged_on_usr']; ?></h3><br>
             <div class="my-slides">
-                <img class="slide" src="imgs/Computer1.png" alt="Computer1">
-                <img class="slide" src="imgs/Computer2.png" alt="Computer2">
-                <img class="slide" src="imgs/Computer3.png" alt="Computer3">
-                <img class="slide" src="imgs/Computer4.png" alt="Computer4">
-                <button class="slide-btn btn-display-left" onclick="plusSlides(-1)">&#10094;</button>
-                <button class="slide-btn in-index" onclick="curSlide(1)">1</button>
-                <button class="slide-btn in-index" onclick="curSlide(2)">2</button>
-                <button class="slide-btn in-index" onclick="curSlide(3)">3</button>
-                <button class="slide-btn btn-display-right" onclick="plusSlides(+1)">&#10095;</button>
+                <?php
+                if (file_exists("../private/items") !== FALSE){
+                    $contents = unserialize(file_get_contents("../private/items"));
+                    $i = 0;
+                    foreach ($contents as $arry) {
+                        echo '<div class="store-item slide">
+                                <button class="si-btn" type="button" name="button">Add to cart</button>
+                                <img class="si-pic" src="images/Computer1.png" alt="'.$arry['item_name'].'">
+                                <div class="si-all">
+                                   <h4 class="si-tittle">'.$arry['item_name'].'</h4>
+                                   <p class="si-des">'.$arry['item_type'].'</p>
+                                   <p class="si-price">Price: '.$arry['price'].'</p>
+                                </div>
+            				</div>';
+                        $i++;
+                    }
+                    echo '<div class="nav-slide"><button class="slide-btn btn-display-left" onclick="plusSlides(-1)">&#10094;</button>';
+                    foreach (range(1, $i) as $num)
+                        echo '<button class="slide-btn in-index" onclick="curSlide('.$num.')">'.$num.'</button>';
+                    echo '<button class="slide-btn btn-display-right" onclick="plusSlides(+1)">&#10095;</button></div>';
+                }
+                else
+                    echo "<h3 class='place-holder' style='text-align:center'>No items currently in stock</h3>";
+
+                ?>
             </div>
             <div class="about-us-container">
                 <h3>About us</h3>
@@ -46,8 +62,8 @@
         function showSlide(n) {
             var x = document.getElementsByClassName("slide");
             var dots = document.getElementsByClassName("in-index");
-            if (n > x.length - 1) {slideIndex = 1};
-            if (n < 1) {slideIndex = x.length - 1};
+            if (n > x.length) {slideIndex = 1};
+            if (n < 1) {slideIndex = x.length};
             console.log(slideIndex);
             for (var i = 0; i < x.length; i++) {
                 x[i].style.display = "none";

@@ -6,7 +6,7 @@ body {
 
 header {
 	height: 150.5px;
-	background-image: url("imgs/logo.jpg");
+	background-image: url("images/logo.jpg");
 	background-attachment: fixed;
 	background-size: 100% 25%;
 	background-repeat: no-repeat;
@@ -109,14 +109,22 @@ footer {
 	background-color: #f1f1f1;
 }
 
-.slides {
+.slide {
 	display: none;
+	position: relative;
+	margin: auto;
 }
 
 .slide-btn {
 	margin: 10px;
 	background: none;
 	border: none;
+}
+
+.nav-slide {
+	width: 225px;
+	position: relative;
+	margin: auto;
 }
 
 .btn-display-left, .btn-display-right, .badge {cursor:pointer}
@@ -181,7 +189,7 @@ footer {
 }
 
 .category-picker {
-	width: 40%;
+	width: 450px;
 	margin: auto;
 }
 
@@ -189,6 +197,7 @@ footer {
 	padding: 20px;
 	margin: 30px 10px;
 	border-radius: 5px;
+	cursor: pointer;
 }
 
 .check-out-wrapper {
@@ -203,8 +212,12 @@ footer {
 	background-color: grey;
 	border-radius: 10px;
 	padding: 0px 10px 5px 10px;
+	margin: 30px auto;
+	width: 300px;
+}
+
+.store-page {
 	margin: 30px 5px;
-	width: 25%;
 }
 
 .si-btn {

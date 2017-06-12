@@ -12,14 +12,14 @@
 			<h3 id="store-greet" >Welcome <?php echo ($_SESSION['logged_on_usr'] == "") ? "Guest" : $_SESSION['logged_on_usr']; ?>, to your Cart</h3><br>
 			<div class="all-items">
 				<div class="item-body">
-					<img class="item-pic" src="imgs/Computer1.png" alt="Computer1">
+					<img class="item-pic" src="images/Computer1.png" alt="Computer1">
 					<div class="item-all">
 						<h4 class="item-tittle">Tittle is Computer</h4>
 						<p class="item-des">This description is a bit longer for test purposes</p>
 					</div>
 					<div class="item-other">
 						<p class="item-price">Price: $$$$</p>
-						<button type="button" class="rm-btn" name="remove"><img src="imgs/DeleteRed.png" alt="Remove"></button>
+						<button type="button" class="rm-btn" name="remove"><img src="images/DeleteRed.png" alt="Remove"></button>
 					</div>
 				</div>
 			</div>
