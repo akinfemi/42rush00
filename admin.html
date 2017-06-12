@@ -1,0 +1,58 @@
+<html>
+<head>
+    <title>Administrator</title>
+    <link rel="stylesheet" type="text/css" href="rush.css">
+    <meta charset="utf-8">
+</head>
+<body id="log">
+<h2>Administrator</h2>
+<div id="add_item">
+    <h3>ADD ITEM</h3>
+    <form method="post" action="create_item.php" enctype="multipart/form-data" title="add_item">
+    ItemID: <input name="itemid" type="text">
+    <br/>
+    Price: <input name="price" type="number" step="0.01">
+    <br/>
+    Item Name: <input name="item_name" type="text">
+    <br/>
+    Item Type: <input name="item_type" type="text">
+        <br>
+    Select Image: <input type="file" name="image_path">
+        <br>
+    <input type="submit" name="submit" value="OK">
+</form></div>
+
+<div id="modify_item">
+    <h3>MODIFY ITEM</h3>
+    <form method="post" action="modify_item.php" enctype="multipart/form-data" title="modify_item">
+        ItemID: <input name="itemid" type="text">
+        <br/>
+        Price: <input name="price" type="number" step="0.01">
+        <br/>
+        Item Name: <input name="item_name" type="text">
+        <br/>
+        Item Type: <input name="item_type" type="text">
+        <br/>
+        Select Image: <input type="file" name="image_path">
+        <br>
+        <input type="submit" name="submit" value="OK">
+    </form></div>
+
+<div id="del_item">
+    <h3>DELETE ITEM</h3>
+    <form method="post" action="delete_item.php">
+    ItemID: <input name="itemid" type="text">
+    <input type="submit" name="submit" value="Delete">
+</form></div>
+
+<div id="del_user">
+    <h3>DELETE USER</h3>
+    <form method="post" action="delete_user.php">
+    User Login: <input name="login" type="text">
+    <input type="submit" name="submit" value="Delete">
+</form></div>
+<form method="post" action="index.php">
+    <input type="submit" name="submit" value="DONE">
+</form>
+</body>
+</html>

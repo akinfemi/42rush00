@@ -12,6 +12,7 @@ if ($_POST['newpw'] === "" || $_POST['oldpw'] === "" || $_POST['submit'] !== "OK
                 if ($files['login'] === $_POST['login'] && $files['passwd'] === $hashed){
                     $uns_content[$i]['passwd'] = hash("whirlpool",$_POST['newpw']);
                     file_put_contents("../private/passwd", serialize($uns_content));
+                    header('Location: index.php');
                     echo "OK\n";
                     return ;
                 }
