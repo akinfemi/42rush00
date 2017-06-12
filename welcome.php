@@ -38,7 +38,7 @@
                                 <img class="si-pic" src="images/Computer1.png" alt="'.$arry['item_name'].'">
                                 <div class="si-all">
                                    <h4 class="si-tittle">'.$arry['item_name'].'</h4>
-                                   <p class="si-des">'.$arry['item_type'].'</p>
+                                   <p class="si-des">Category: '.$arry['item_type'].'</p>
                                    <p class="si-price">Price: '.$arry['price'].'</p>
                                 </div>
             				</div>';
@@ -81,7 +81,6 @@
             var dots = document.getElementsByClassName("in-index");
             if (n > x.length) {slideIndex = 1};
             if (n < 1) {slideIndex = x.length};
-            console.log(slideIndex);
             for (var i = 0; i < x.length; i++) {
                 x[i].style.display = "none";
             }
