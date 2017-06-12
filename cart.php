@@ -11,17 +11,24 @@
 		<article class="content-wrapper">
 			<h3 id="store-greet" >Welcome <?php echo ($_SESSION['logged_on_usr'] == "") ? "Guest" : $_SESSION['logged_on_usr']; ?>, to your Cart</h3><br>
 			<div class="all-items">
-				<div class="item-body">
-					<img class="item-pic" src="images/Computer1.png" alt="Computer1">
-					<div class="item-all">
-						<h4 class="item-tittle">Tittle is Computer</h4>
-						<p class="item-des">This description is a bit longer for test purposes</p>
-					</div>
-					<div class="item-other">
-						<p class="item-price">Price: $$$$</p>
-						<button type="button" class="rm-btn" name="remove"><img src="images/DeleteRed.png" alt="Remove"></button>
-					</div>
-				</div>
+
+                <?php
+                $items = array();
+                $items = $_SESSION['cart'];
+                foreach ($items as $i => $item){
+                        echo "<div class=\"item-body\">
+                            <img class=\"item-pic\" src=\"".$item['image_path']." \"alt=\"Computer1\">
+                            <div class=\"item-all\">
+                                <h4 class=\"item-tittle\">".$item['item_name']."</h4>
+                                <p class=\"item-des\">".$item['item_type']."</p>
+                            </div>
+                            <div class=\"item-other\">
+                                <p class=\"item-price\">Price: $".$item['price']."</p>
+                                <button type=\"button\" class=\"rm-btn\" name=\"remove\"><img src=".$item['image_path']."\" alt=\"Remove\"></button>
+                            </div>
+                        </div>
+                ";}
+                ?>
 			</div>
 			<div class="check-out-wrapper">
 				<em>Sub-Total: $$$$</em><br/>
