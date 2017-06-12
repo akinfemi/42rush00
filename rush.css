@@ -8,7 +8,7 @@
     height: 30px;
     /*border-bottom: 1px solid grey;*/
     box-shadow: 2px 2px 2px;
-    position: fixed;
+    /*position: fixed;*/
     background-color: white;
 }
 #log {
@@ -39,6 +39,11 @@ body {
 .container{
     display: flex;
     justify-content: flex-start;
+}
+.container_2{
+    display: flex;
+    justify-content: flex-start;
+    width:100%;
 }
 
 #left_pane {
