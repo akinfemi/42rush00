@@ -8,7 +8,7 @@
 <h2>Admin Page</h2>
 <div id="add_item">
     <h3>ADD ITEM</h3>
-    <form method="post" action="create_item.php">
+    <form method="post" action="create_item.php" enctype="multipart/form-data">
     ItemID: <input name="itemid" type="text">
     <br/>
     Price: <input name="price" type="number" step="0.01">
@@ -16,14 +16,15 @@
     Item Name: <input name="item_name" type="text">
     <br/>
     Item Type: <input name="item_type" type="text">
-    <br/>
-    Image Path: <input name="image_path" type="text">
+        <br>
+    Select Image: <input type="file" name="image_path">
+        <br>
     <input type="submit" name="submit" value="OK">
 </form></div>
 
 <div id="modify_item">
     <h3>MODIFY ITEM</h3>
-    <form method="post" action="modfiy_item.php">
+    <form method="post" action="modify_item.php" enctype="multipart/form-data">
         ItemID: <input name="itemid" type="text">
         <br/>
         Price: <input name="price" type="number" step="0.01">
@@ -32,7 +33,8 @@
         <br/>
         Item Type: <input name="item_type" type="text">
         <br/>
-        Image Path: <input name="image_path" type="text">
+        Select Image: <input type="file" name="image_path">
+        <br>
         <input type="submit" name="submit" value="OK">
     </form></div>
 
