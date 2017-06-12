@@ -17,10 +17,24 @@
     <br/>
     Item Type: <input name="item_type" type="text">
     <br/>
-    Image Path: <input name="item_path" type="text">
-    <br/>
+    Image Path: <input name="image_path" type="text">
     <input type="submit" name="submit" value="OK">
 </form></div>
+
+<div id="modify_item">
+    <h3>MODIFY ITEM</h3>
+    <form method="post" action="modfiy_item.php">
+        ItemID: <input name="itemid" type="text">
+        <br/>
+        Price: <input name="price" type="number" step="0.01">
+        <br/>
+        Item Name: <input name="item_name" type="text">
+        <br/>
+        Item Type: <input name="item_type" type="text">
+        <br/>
+        Image Path: <input name="image_path" type="text">
+        <input type="submit" name="submit" value="OK">
+    </form></div>
 
 <div id="del_item">
     <h3>DELETE ITEM</h3>
