@@ -22,7 +22,7 @@
                 $contents = file_get_contents("../private/items");
                 $uns_content = unserialize($contents);
                 foreach ($uns_content as $i => $files){
-                    echo"<div class=\"store-item store-page\"><button class=\"si-btn\" type=\"button\" name=\"button\">Add to cart</button>".
+                    echo"<div class=\"store-item store-page\"><form method='post' action='in_cart.php'><button class=\"si-btn\" type=\"button\" name=\"button\">Add to cart</button></form>".
                         "<img class='si-pic' src=" . $uns_content[$i]['image_path'] . " alt='Computer1'>".
                         "<div class=\"si-all\">".
                         "<h4 class=\"si-tittle\">".$uns_content[$i]['item_name']."</h4>".
