@@ -16,7 +16,7 @@ session_start();
                 if (($_SESSION['logged_on_user']) != ""){
                     echo "Welcome, ".$_SESSION['logged_on_user'];
                     if ($_SESSION['user_is_admin'] > 0)
-                        echo "<a href='admin.html'>Admin</a>";
+                        echo " <a href='admin.html'>Admin</a>";
                     echo "<div id='logout'><a href='logout.php'>Logout</a></div>";
                 }
                 else{
@@ -31,21 +31,24 @@ session_start();
                 ?>
             </div>
             <h3 id="store-greet" >Welcome, <?php echo ($_SESSION['logged_on_user'] == "") ? "Guest" : $_SESSION['logged_on_user']; ?></h3><br>
-            <div class="my-slides">
+             <div class="my-slides">
                 <?php
                 if (file_exists("../private/items") !== FALSE)
                 {
                     $contents = unserialize(file_get_contents("../private/items"));
                     $i = 0;
                     foreach ($contents as $arry) {
-                        echo "<div class='store-item slide'>"
+                        echo "<div class='store-item slide'>" .
+                            '<form action="add_to_cart.php" method="get">'.
+                            '<input type="hidden" name="item_id" value="' . $arry['itemid'] . '" />'.
+                            '<input type="submit" name="request" value="Add to Cart" /></form>'
                             ."<img class='si-pic' src='".$arry['image_path']."' alt='".$arry['item_name']."'>"
                             ."<div class='si-all'>"
                             ."<h4 class='si-tittle'>".$arry['item_name']."</h4>"
                             ."<p class='si-des'>Category: ".$arry['item_type']."</p>"
                             ."<p class='si-price'>Price: ".$arry['price']."</p>"
                             ."</div>
-            				</div>";
+                            </div>";
                         $i++;
                     }
                     echo '<div class="nav-slide"><button class="slide-btn btn-display-left" onclick="plusSlides(-1)">&#10094;</button>';

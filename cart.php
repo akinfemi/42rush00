@@ -39,9 +39,9 @@ session_start();
 					$item['quantity'] -= 1;
 			echo '</div>
 				<div class="check-out-wrapper">' .
-					'<em>Sub-Total: ' . $total . '</em><br/>' .
-					'<em>Tax(7.5%): ' . $total * .075 . ' </em><br/>' .
-					'<strong>Total: ' . $total * 1.075 . '</strong><br/>' .
+					'<em>Sub-Total: $' . number_format($total, 2) . '</em><br/>' .
+					'<em>Tax(7.5%): $' . number_format($total * .075, 2) . ' </em><br/>' .
+					'<strong>Total: $' . number_format($total * 1.075, 2) . '</strong><br/>' .
 					'<button type="button" name="Checkout">Checkout</button>' .
 				'</div>' .
 				'</article><div class="check-out-wrapper"><button type="button" onclick="print()">Print Invoice</button></div>';
