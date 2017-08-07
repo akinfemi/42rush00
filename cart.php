@@ -14,6 +14,7 @@ session_start();
 			<h3 id="store-greet" >Welcome <?php echo ($_SESSION['logged_on_user'] == "") ? "Guest" : $_SESSION['logged_on_user']; ?>, to your Cart</h3><br>
 			<div class="all-items">
 			<?php
+				$total = 0;
 				$items = array();
 				$items = $_SESSION['cart'];
 				foreach ($items as $i => $item)
@@ -32,18 +33,19 @@ session_start();
 							'<input type="submit" name="request" value="Remove" /></form>'.
 						"</div>
 					</div>";
+					$total += ($item['price'] * $item['quantity']);
 				}
 				if ($_POST['remove'] == 1)
 					$item['quantity'] -= 1;
+			echo '</div>
+				<div class="check-out-wrapper">' .
+					'<em>Sub-Total: ' . $total . '</em><br/>' .
+					'<em>Tax(7.5%): ' . $total * .075 . ' </em><br/>' .
+					'<strong>Total: ' . $total * 1.075 . '</strong><br/>' .
+					'<button type="button" name="Checkout">Checkout</button>' .
+				'</div>' .
+				'</article>';
+			include("footer.php");
 			?>
-			</div>
-			<div class="check-out-wrapper">
-				<em>Sub-Total: $$$$</em><br/>
-				<em>Tax(7.5%): $$$$ </em><br/>
-				<strong>Total: $$$$</strong><br/>
-				<button type="button" name="Checkout">Checkout</button>
-			</div>
-		</article>
-		<?php include("footer.php") ?>
 	</body>
 </html>
