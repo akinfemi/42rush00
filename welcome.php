@@ -15,6 +15,8 @@ session_start();
                 <?php
                 if (($_SESSION['logged_on_user']) != ""){
                     echo "Welcome, ".$_SESSION['logged_on_user'];
+                    if ($_SESSION['user_is_admin'] > 0)
+                        echo "<a href='admin.html'>Admin</a>";
                     echo "<div id='logout'><a href='logout.php'>Logout</a></div>";
                 }
                 else{
@@ -37,7 +39,6 @@ session_start();
                     $i = 0;
                     foreach ($contents as $arry) {
                         echo "<div class='store-item slide'>"
-                            ."<button class='si-btn' type='button' name='button'>Add to cart</button>"
                             ."<img class='si-pic' src='".$arry['image_path']."' alt='".$arry['item_name']."'>"
                             ."<div class='si-all'>"
                             ."<h4 class='si-tittle'>".$arry['item_name']."</h4>"
