@@ -35,16 +35,16 @@ session_start();
                 {
                     $contents = unserialize(file_get_contents("../private/items"));
                     $i = 0;
-                    foreach ($contents as $array) {
-                        echo '<div class="store-item slide">
-                                <button class="si-btn" type="button" name="button">Add to cart</button>
-                                <img class="si-pic" src="images/Computer1.png" alt="'.$array['item_name'].'">
-                                <div class="si-all">
-                                   <h4 class="si-title">'.$array['item_name'].'</h4>
-                                   <p class="si-des">Category: '.$array['item_type'].'</p>
-                                   <p class="si-price">Price: $'.$array['price'].'</p>
-                                </div>
-            				</div>';
+                    foreach ($contents as $arry) {
+                        echo "<div class='store-item slide'>"
+                            ."<button class='si-btn' type='button' name='button'>Add to cart</button>"
+                            ."<img class='si-pic' src='".$arry['image_path']."' alt='".$arry['item_name']."'>"
+                            ."<div class='si-all'>"
+                            ."<h4 class='si-tittle'>".$arry['item_name']."</h4>"
+                            ."<p class='si-des'>Category: ".$arry['item_type']."</p>"
+                            ."<p class='si-price'>Price: ".$arry['price']."</p>"
+                            ."</div>
+            				</div>";
                         $i++;
                     }
                     echo '<div class="nav-slide"><button class="slide-btn btn-display-left" onclick="plusSlides(-1)">&#10094;</button>';

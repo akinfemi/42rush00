@@ -31,7 +31,7 @@ session_start();
 							'<form action="add_to_cart.php" method="get">'.
 							'<input type="hidden" name="item_id" value="' . $uns_content[$i]['itemid'] . '" />'.
 							'<input type="submit" name="request" value="Add to Cart" /></form>'.
-							"<img class='si-pic' src='images/Computer2.png' alt='Computer1'>".
+                            "<img class='si-pic' src='".$uns_content[$i]['image_path']."' alt='Computer1'>".
 							"<div class=\"si-all\">".
 							"<h4 class=\"si-tittle\">".$uns_content[$i]['item_name']."</h4>".
 							"<p class=\"si-des\">Category:<br />".$uns_content[$i]['item_type']."</p>".
