@@ -9,13 +9,9 @@ if ($_POST['login'] !== "" && $_POST['passwd'] !== "")
         $_SESSION['logged_on_user'] = $_POST['login'];
         $_SESSION['user_is_admin'] = $aut;
         $_SESSION['cart'] = array();
-        if ($_SESSION['logged_on_user'] == 'admin')
-            header('Location: admin.html');
-        else {
-            header('Location: welcome.php');
-            echo "OK\n";
-            exit();
-        }
+        header('Location: welcome.php');
+        echo "OK\n";
+        exit();
     }
     else
     {
