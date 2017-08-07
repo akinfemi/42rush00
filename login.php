@@ -1,9 +1,13 @@
 <?php
 session_start();
 include ("auth.php");
-if ($_POST['login'] !== "" && $_POST['passwd'] !== ""){
-    if (auth($_POST['login'], $_POST['passwd']) !== false){
+if ($_POST['login'] !== "" && $_POST['passwd'] !== "")
+{
+    $aut = auth($_POST['login'], $_POST['passwd']);
+    if ($aut >= 0)
+    {
         $_SESSION['logged_on_user'] = $_POST['login'];
+        $_SESSION['user_is_admin'] = $aut;
         $_SESSION['cart'] = array();
         if ($_SESSION['logged_on_user'] == 'admin')
             header('Location: admin.html');
@@ -12,12 +16,16 @@ if ($_POST['login'] !== "" && $_POST['passwd'] !== ""){
             echo "OK\n";
             exit();
         }
-    }else{
+    }
+    else
+    {
         header('Location: welcome.php');
         echo "ERROR\n";
         exit();
     }
-}else {
+}
+else
+{
     $_SESSION['logged_on_user'] = "";
     header('Location: welcome.php');
     echo "ERROR\n";

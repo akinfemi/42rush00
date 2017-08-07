@@ -1,9 +1,11 @@
-<?php session_start(); ?>
+<?php
+session_start();
+?>
 <html>
 	<head>
 		<meta charset="utf-8">
-        <title>Shop</title>
-        <link rel="stylesheet" type="text/css" href="rush.css">
+		<title>Shop</title>
+		<link rel="stylesheet" type="text/css" href="rush.css">
 		<link rel="stylesheet" type="text/css" href="extra.css">
 	</head>
 	<body>
@@ -16,26 +18,30 @@
 				<button class="cat-btn" type="button" name="button" onclick="curBtn(3)">Mouse</button>
 				<button class="cat-btn" type="button" name="button" onclick="curBtn(4)">Keyboard</button>
 			</div>
-            <div class="container_2">
-            <?php
-            if (file_exists("../private/items") !== FALSE){
+			<div class="container_2">
+			<?php
+			if (file_exists("../private/items") !== FALSE){
 				$type = "All";
-                $contents = file_get_contents("../private/items");
-                $uns_content = unserialize($contents);
-                foreach ($uns_content as $i => $files){
+				$contents = file_get_contents("../private/items");
+				$uns_content = unserialize($contents);
+				foreach ($uns_content as $i => $files){
 					if ($uns_content[$i]['item_type'] === $type || $type === "All")
 					{
-						echo"<div class=\"store-item store-page\"><button class=\"si-btn\" type=\"button\" name=\"button\">Add to cart</button>".
-	                        "<img class='si-pic' src='images/Computer2.png' alt='Computer1'>".
-	                        "<div class=\"si-all\">".
-	                        "<h4 class=\"si-tittle\">".$uns_content[$i]['item_name']."</h4>".
-	                        "<p class=\"si-des\">Category: ".$uns_content[$i]['item_type']."</p>".
+						echo"<div class=\"store-item store-page\">".
+							'<form action="add_to_cart.php" method="get">'.
+							'<input type="hidden" name="item_id" value="' . $uns_content[$i]['itemid'] . '" />'.
+							'<input type="submit" name="request" value="Add to Cart" /></form>'.
+							"<img class='si-pic' src='images/Computer2.png' alt='Computer1'>".
+							"<div class=\"si-all\">".
+							"<h4 class=\"si-tittle\">".$uns_content[$i]['item_name']."</h4>".
+							"<p class=\"si-des\">Category:<br />".$uns_content[$i]['item_type']."</p>".
 							"<p class=\"si-price\">Price: ".$uns_content[$i]['price']."</p></div></div>";
 					}
-                };
-            }else
-                echo "<h3 class='place-holder' style='text-align:center'>No item in shop</h3>";
-            ?>
+				};
+			}
+			else
+				echo "<h3 class='place-holder' style='text-align:center'>No item in shop</h3>";
+			?>
 		</article>
 		<?php include("footer.php") ?>
 	</body>

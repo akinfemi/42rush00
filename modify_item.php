@@ -9,7 +9,7 @@ if ($_POST['itemid'] === "" || $_POST['submit'] !== "OK"){
             $contents = file_get_contents("../private/items");
             $uns_content = unserialize($contents);
             $img_name = upload_image();
-//            echo "imageuploaded".$img_name;
+            //echo "imageuploaded".$img_name;
             $img_path = "/images/".$img_name;
             foreach ($uns_content as $i => $files){
                 if ($files['itemid'] === $_POST['itemid']){

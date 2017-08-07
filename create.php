@@ -15,14 +15,14 @@
                         return ;
                     }
                 }
-                $new_entry = ['login' => $_POST['login'], 'passwd' => $hashed];
+                $new_entry = ['login' => $_POST['login'], 'passwd' => $hashed, 'admin' => FALSE];
                 $uns_content[] = $new_entry;
                 file_put_contents("../private/passwd", serialize($uns_content));
                 header('Location: welcome.php');
                 echo "OK\n";
             }
             else{
-                $new_entry[] = ['login' => $_POST['login'], 'passwd' => $hashed];
+                $new_entry[] = ['login' => $_POST['login'], 'passwd' => $hashed, 'admin' => TRUE];
                 $new_entry = serialize($new_entry);
                 if (file_exists("../private") === FALSE)
                     mkdir("../private", 0777);
