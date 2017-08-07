@@ -44,7 +44,7 @@ session_start();
 					'<strong>Total: ' . $total * 1.075 . '</strong><br/>' .
 					'<button type="button" name="Checkout">Checkout</button>' .
 				'</div>' .
-				'</article>';
+				'</article><div class="check-out-wrapper"><button type="button" onclick="print()">Print Invoice</button></div>';
 			include("footer.php");
 			?>
 	</body>
